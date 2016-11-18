@@ -5,6 +5,7 @@
 #include "BatteryCollectorCharacter.h"
 #include "Pickup.h"
 #include "BatteryPickup.h"
+#include "Logger.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ABatteryCollectorCharacter
@@ -178,6 +179,8 @@ void ABatteryCollectorCharacter::CollectPickups()
 			{
 				// Increase the collected power
 				CollectedPower += TestBattery->GetPower();
+				// Log test
+				Logger::WriteStringToFile();
 			}
 			// Deactive the pickup
 			TestPickup->SetActive(false);

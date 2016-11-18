@@ -8,6 +8,9 @@
 class BATTERYCOLLECTOR_API Logger
 {
 public:
+	static void WriteStringToFile();
+
+private:
 	Logger();
 	~Logger();
 };
