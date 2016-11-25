@@ -180,7 +180,7 @@ void ABatteryCollectorCharacter::CollectPickups()
 				// Increase the collected power
 				CollectedPower += TestBattery->GetPower();
 				// Log test
-				Logger::WriteStringToFile();
+				Logger::WriteStringToFile("AnotherString");
 			}
 			// Deactive the pickup
 			TestPickup->SetActive(false);

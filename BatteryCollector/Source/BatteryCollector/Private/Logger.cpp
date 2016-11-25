@@ -3,17 +3,8 @@
 #include "BatteryCollector.h"
 #include "Logger.h"
 
-void Logger::WriteStringToFile()
+void Logger::WriteStringToFile(FString logText)
 {
-	FString stringToSave = FString("TestString");
-	FString path = FString("./logbatterycollector.txt");
-	FFileHelper::SaveStringToFile(stringToSave, *path);
-}
-
-Logger::Logger()
-{
-}
-
-Logger::~Logger()
-{
+	FString path = FString(FPaths::GameDir() + "/logbatterycollector.txt");
+	FFileHelper::SaveStringToFile(logText, *path);
 }
