@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
 #include "SpawnVolume.h"
+#include "Logger.h"
 
 ABatteryCollectorGameMode::ABatteryCollectorGameMode()
 {
@@ -54,6 +55,9 @@ void ABatteryCollectorGameMode::BeginPlay()
 			CurrentWidget->AddToViewport();
 		}
 	}
+
+	// delete log file if needed
+	Logger::DeleteLog();
 }
 
 void ABatteryCollectorGameMode::Tick(float DeltaTime)

@@ -2,6 +2,8 @@
 
 #pragma once
 
+#define LOG_FILE_NAME "logbatterycollector.log"
+
 /**
  * 
  */
@@ -9,8 +11,11 @@ class BATTERYCOLLECTOR_API Logger
 {
 public:
 	static void WriteStringToFile(FString logText);
+	static void DeleteLog();
 
 private:
 	Logger() {};
 	~Logger() {};
+
+	static FString GetPath();
 };
