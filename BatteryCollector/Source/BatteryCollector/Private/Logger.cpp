@@ -5,6 +5,7 @@
 
 void Logger::WriteStringToFile(FString logText)
 {
-	FString path = FString(FPaths::GameDir() + "/logbatterycollector.txt");
-	FFileHelper::SaveStringToFile(logText, *path);
+	logText += "\n"; // add new line after log message
+	FString path = FString(FPaths::GameDir() + "/logbatterycollector.log");
+	FFileHelper::SaveStringToFile(logText, *path, FFileHelper::EEncodingOptions::AutoDetect, &IFileManager::Get(), EFileWrite::FILEWRITE_Append);
 }
