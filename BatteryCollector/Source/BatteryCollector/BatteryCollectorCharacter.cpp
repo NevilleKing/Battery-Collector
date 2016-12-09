@@ -180,7 +180,7 @@ void ABatteryCollectorCharacter::CollectPickups()
 				// Increase the collected power
 				CollectedPower += TestBattery->GetPower();
 				// Log Battery Location
-				Logger::WriteStringToFile(TestBattery->GetActorLocation().ToString());
+				Logger::WriteLocationToFile(TestBattery->GetActorLocation());
 			}
 			// Deactive the pickup
 			TestPickup->SetActive(false);

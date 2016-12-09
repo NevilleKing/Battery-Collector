@@ -12,6 +12,7 @@ class BATTERYCOLLECTOR_API Logger
 public:
 	static void WriteStringToFile(FString logText);
 	static void DeleteLog();
+	static void WriteLocationToFile(FVector position);
 
 private:
 	Logger() {};

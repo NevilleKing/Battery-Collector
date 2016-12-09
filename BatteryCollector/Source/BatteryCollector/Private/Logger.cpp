@@ -19,6 +19,11 @@ void Logger::DeleteLog()
 	}
 }
 
+void Logger::WriteLocationToFile(FVector position)
+{
+	WriteStringToFile(FString::SanitizeFloat(position.X) + "," + FString::SanitizeFloat(position.Y) + "," + FString::SanitizeFloat(position.Z));
+}
+
 FString Logger::GetPath()
 {
 	return FString(FPaths::GameDir() + "/" + LOG_FILE_NAME);
