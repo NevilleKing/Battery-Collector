@@ -3,28 +3,28 @@
 #include "BatteryCollector.h"
 #include "Logger.h"
 
-void Logger::WriteStringToFile(FString logText)
+void Logger::WriteStringToFile(FString logText, FString filename)
 {
 	logText += "\n"; // add new line after log message
-	FString path = GetPath();
+	FString path = GetPath(filename);
 	FFileHelper::SaveStringToFile(logText, *path, FFileHelper::EEncodingOptions::AutoDetect, &IFileManager::Get(), EFileWrite::FILEWRITE_Append);
 }
 
-void Logger::DeleteLog()
+void Logger::DeleteLog(FString filename)
 {
-	FString path = GetPath();
+	FString path = GetPath(filename);
 	if (FPaths::FileExists(path))
 	{
 		FPlatformFileManager::Get().GetPlatformFile().DeleteFile(*path);
 	}
 }
 
-void Logger::WriteLocationToFile(FVector position)
+void Logger::WriteLocationToFile(FVector position, FString filename)
 {
-	WriteStringToFile(FString::SanitizeFloat(position.X) + "," + FString::SanitizeFloat(position.Y) + "," + FString::SanitizeFloat(position.Z));
+	WriteStringToFile(FString::SanitizeFloat(position.X) + "," + FString::SanitizeFloat(position.Y) + "," + FString::SanitizeFloat(position.Z), filename);
 }
 
-FString Logger::GetPath()
+FString Logger::GetPath(FString filename)
 {
-	return FString(FPaths::GameDir() + "/" + LOG_FILE_NAME);
+	return FString(FPaths::GameDir() + "/" + filename);
 }

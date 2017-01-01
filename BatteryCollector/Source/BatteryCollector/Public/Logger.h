@@ -2,21 +2,19 @@
 
 #pragma once
 
-#define LOG_FILE_NAME "logbatterycollector.log"
-
 /**
  * 
  */
 class BATTERYCOLLECTOR_API Logger
 {
 public:
-	static void WriteStringToFile(FString logText);
-	static void DeleteLog();
-	static void WriteLocationToFile(FVector position);
+	static void WriteStringToFile(FString logText, FString filename);
+	static void DeleteLog(FString filename);
+	static void WriteLocationToFile(FVector position, FString filename);
 
 private:
 	Logger() {};
 	~Logger() {};
 
-	static FString GetPath();
+	static FString GetPath(FString filename);
 };

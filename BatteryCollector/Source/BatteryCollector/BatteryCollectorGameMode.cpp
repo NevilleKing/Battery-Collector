@@ -57,7 +57,7 @@ void ABatteryCollectorGameMode::BeginPlay()
 	}
 
 	// delete log file if needed
-	Logger::DeleteLog();
+	Logger::DeleteLog("battery_location.log");
 }
 
 void ABatteryCollectorGameMode::Tick(float DeltaTime)
