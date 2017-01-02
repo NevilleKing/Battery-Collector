@@ -57,6 +57,7 @@ void ABatteryCollectorGameMode::BeginPlay()
 	}
 
 	// delete log file if needed
+	Logger::DeleteLog("player_location.log");
 	Logger::DeleteLog("battery_location.log");
 }
 

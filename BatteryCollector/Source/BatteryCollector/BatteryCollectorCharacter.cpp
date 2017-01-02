@@ -12,6 +12,9 @@
 
 ABatteryCollectorCharacter::ABatteryCollectorCharacter()
 {
+	// turn on the tick function for logging position
+	PrimaryActorTick.bCanEverTick = true;
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -56,6 +59,15 @@ ABatteryCollectorCharacter::ABatteryCollectorCharacter()
 	// set the dependence of the speed on the power level
 	SpeedFactor = 0.75f;
 	BaseSpeed = 10.0f;
+}
+
+// Called every frame
+void ABatteryCollectorCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	// log the player position to log file
+	Logger::WriteLocationToFile(this->GetActorLocation(), "player_location.log");
 }
 
 //////////////////////////////////////////////////////////////////////////
